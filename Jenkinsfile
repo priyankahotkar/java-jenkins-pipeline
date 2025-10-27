@@ -7,33 +7,27 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/priyankahotkar/java-jenkins-pipeline.git'
-            }
-        }
-
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test || true'
+                bat 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package'
+                bat 'mvn package'
             }
         }
 
         stage('Run Application') {
             steps {
-                sh 'java -jar target/java-jenkins-pipeline-1.0-SNAPSHOT.jar'
+                bat 'java -cp target/java-jenkins-pipeline-1.0-SNAPSHOT.jar com.example.HelloWorld'
             }
         }
     }
