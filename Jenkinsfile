@@ -9,25 +9,25 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                sh 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                bat 'mvn package'
+                sh 'mvn package'
             }
         }
 
         stage('Run Application') {
             steps {
-                bat 'java -cp target/java-jenkins-pipeline-1.0-SNAPSHOT.jar com.example.HelloWorld'
+                sh 'java -cp target/java-jenkins-pipeline-1.0-SNAPSHOT.jar com.example.HelloWorld'
             }
         }
     }
