@@ -27,7 +27,7 @@ pipeline {
 
         stage('Run Application') {
             steps {
-                sh 'java -cp target/java-jenkins-pipeline-1.0-SNAPSHOT.jar com.example.HelloWorld'
+                sh 'java -cp target/classes com.example.HelloWorld'
             }
         }
     }
