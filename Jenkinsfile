@@ -27,7 +27,7 @@ pipeline {
 
         stage('Run Application') {
             steps {
-                sh 'java -cp target/classes com.example.HelloWorld'
+                sh 'java -cp target/classes HelloWorld'
             }
         }
     }
